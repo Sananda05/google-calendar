@@ -1,0 +1,163 @@
+.header{
+    position: sticky;
+    top: 0px;
+    overflow: hidden;
+    z-index: 1;
+    height: 8rem;
+}
+
+a span{
+    padding-top: 40px; margin-top: -40px;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 4rem;
+    background-color: var(--white);
+    box-shadow: 0 .5px 6px rgb(195, 193, 193);
+   
+}
+
+.navbar_title{
+   color: var(--primary);
+   font-family: Montserrat, sans-serif;
+   font-size: 22px;
+   font-weight: normal;
+}
+
+.navbar_left_content{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_right_content{
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_left_first_content, .navbar_left_second_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar_left_first_content{
+    width: 35%;
+}
+.navbar_left_second_content{
+    width: 55%;
+    gap: .5rem;
+}
+
+
+.hamburger_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .hamburger_icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+  }
+  
+  /* Add hover effect */
+  .hamburger_container:hover {
+    background-color: #dfdfdf; 
+    border-radius: 50%;
+  }
+
+  .navbar_today_button, .navbar_view_selector{
+    height: 40px;
+    width: 100px;
+    border: .5px solid var(--secondary);
+    background-color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .navbar_view_selector{
+    padding: 5px;
+  }
+
+.calendar_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Adjust the size as needed */
+    height: 40px;
+    cursor: pointer;
+    background-color: var(--light-blue);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border: .5px solid var(--secondary);
+}
+
+.task_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Adjust the size as needed */
+    height: 40px;
+    cursor: pointer;
+    background-color: var(--white);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: .5px solid var(--secondary);
+}
+
+.calendar_icon{
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:1540px){
+    .header{
+        height: 5rem;
+    }
+
+    .navbar{
+        height: 4.5rem;
+    }
+
+    .navbar_button{
+        height: 45px;
+    }
+    
+}
+
+@media (max-width:1024px){
+    .navbar{
+        box-shadow: 0 2px 2px gainsboro;
+    }
+}
+@media (max-width:530px){
+    .navbar{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+}
