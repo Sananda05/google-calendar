@@ -8,7 +8,6 @@ import {
   startOfWeek,
   endOfWeek,
   eachDayOfInterval,
-  format,
 } from "date-fns";
 
 const CalendarView = () => {
@@ -26,9 +25,18 @@ const CalendarView = () => {
 
     return calendarDates.map((date) => ({
       date,
-      formattedDate: format(date, "yyyy-MM-dd"), // Adjust the format as needed
     }));
   };
+
+  const dayList = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "WednesDay",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   // Example usage
   const selectedDate = new Date(); // Replace with your selected date
@@ -38,9 +46,13 @@ const CalendarView = () => {
 
   return (
     <div className="calendar_wrapper">
-      {calendarDates.map(({ date, formattedDate }, index) => (
-        <Dateview date={date} />
-      ))}
+      {calendarDates.map(({ date, formattedDate }, index) =>
+        index <= 6 ? (
+          <Dateview date={date} day={dayList[index]} />
+        ) : (
+          <Dateview date={date} day={""} />
+        )
+      )}
     </div>
   );
 };
