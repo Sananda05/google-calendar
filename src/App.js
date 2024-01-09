@@ -1,6 +1,8 @@
 import "./App.css";
 import CalendarView from "./component/calendar-view/CalenderView";
 import Navbar from "./component/navbar/Navbar";
+import RightsideBar from "./component/sidebar/RightsideBar";
+import LeftSideBar from "./component/sidebar/LeftSideBar";
 
 function App() {
   // task
@@ -9,14 +11,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="navbar_container">
-          <Navbar />
-        </div>
-        <div className="body_container">
-          <CalendarView />
-        </div>
-      </header>
+      <div className="navbar_container">
+        <Navbar />
+      </div>
+      <div className="body_container">
+        <LeftSideBar />
+        <CalendarView />
+        <RightsideBar />
+      </div>
     </div>
   );
 }
