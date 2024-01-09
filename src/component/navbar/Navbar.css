@@ -1,9 +1,9 @@
-.header{
+/* .header{
     position: sticky;
     top: 0px;
     overflow: hidden;
     z-index: 1;
-}
+} */
 
 .navbar{
     display: flex;

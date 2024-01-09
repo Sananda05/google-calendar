@@ -1,7 +1,6 @@
 .right_sidebar_container{
     width: 4%;
     height: 100vh;
-    /* border-left: 1px solid var(--secondary); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,9 +9,13 @@
 
 .left_sidebar_container{
     width: 20%;
-    height: 100%;
+    height: 100vh;
     background-color: var(--white);
-    /* border-right: 1px solid var(--secondary); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
 }
 .right_sidebar_icons{
     height: 50%;

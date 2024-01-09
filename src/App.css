@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 
 html{
@@ -7,28 +15,22 @@ html{
   --primary: #222222;
   --secondary: #bcbcbc;
   --white: #ffffff;
-  --gray: #dae6f5;
+  --gray: #717172;
   --light-blue: #ccdbf3;
   --blue: rgb(60, 108, 240);
   --red:  #f0dcdc;
   
 }
 
-
-
 .navbar_container{
   height: 20%;
   width: 100vw;
-  overflow-y: scroll;
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
   overflow-x: hidden;
 }
 
 .body_container{
-  top: 0;
-  height: 80%;
-  width: 100%;
+  
   display: flex;
   flex-direction: row;
   align-items: center;
