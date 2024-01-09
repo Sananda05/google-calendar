@@ -32,8 +32,8 @@ function Navbar() {
 
           <div className="navbar_left_second_content">
             <button className="navbar_today_button">Today</button>
-            <p style={{ color: "#222222" }}> {"<"} </p>
-            <p style={{ color: "#222222" }}> {">"} </p>
+            <p style={{ color: "#222222", cursor: "pointer" }}> {"<"} </p>
+            <p style={{ color: "#222222", cursor: "pointer" }}> {">"} </p>
             <h2 className="navbar_title">January 2024</h2>
           </div>
         </div>
