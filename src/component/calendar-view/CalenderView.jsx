@@ -8,9 +8,12 @@ import {
   startOfWeek,
   endOfWeek,
   eachDayOfInterval,
+  isToday,
 } from "date-fns";
+import { useState } from "react";
 
 const CalendarView = () => {
+  const [today, setToday] = useState("");
   const fetchCalendarDates = (selectedDate) => {
     const firstDayOfMonth = startOfMonth(selectedDate);
     const lastDayOfMonth = endOfMonth(selectedDate);
@@ -46,7 +49,7 @@ const CalendarView = () => {
 
   return (
     <div className="calendar_wrapper">
-      {calendarDates.map(({ date, formattedDate }, index) =>
+      {calendarDates.map(({ date }, index) =>
         index <= 6 ? (
           <Dateview date={date} day={dayList[index]} />
         ) : (

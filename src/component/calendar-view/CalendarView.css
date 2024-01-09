@@ -3,11 +3,17 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    top: 0;
+    margin-top: -79px;
+    
 }
 
 .grid_item{
-    height: 170px;
+    height: 140px;
     width: 160px;
-    border: .5px solid var(--secondary);
+    border-left: .5px solid var(--secondary);
+    border-right: .5px solid var(--secondary);
+    border-bottom: .5px solid var(--secondary);
+    border-top: .5px solid var(--secondary);
+    color: var(--gray);
+    font-size: 14px;
 }
