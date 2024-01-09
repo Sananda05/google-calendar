@@ -1,14 +1,10 @@
-.header{
+/* .header{
     position: sticky;
     top: 0px;
     overflow: hidden;
     z-index: 1;
-    height: 8rem;
-}
+} */
 
-a span{
-    padding-top: 40px; margin-top: -40px;
-}
 .navbar{
     display: flex;
     flex-direction: row;
@@ -18,7 +14,8 @@ a span{
     padding-right: 2rem;
     height: 4rem;
     background-color: var(--white);
-    box-shadow: 0 .5px 6px rgb(195, 193, 193);
+    border-bottom: 1px solid var(--secondary);
+    /* box-shadow: 0 .5px 2px rgb(195, 193, 193); */
    
 }
 

@@ -32,8 +32,8 @@ function Navbar() {
 
           <div className="navbar_left_second_content">
             <button className="navbar_today_button">Today</button>
-            <p style={{ color: "#222222" }}> {"<"} </p>
-            <p style={{ color: "#222222" }}> {">"} </p>
+            <p style={{ color: "#222222", cursor: "pointer" }}> {"<"} </p>
+            <p style={{ color: "#222222", cursor: "pointer" }}> {">"} </p>
             <h2 className="navbar_title">January 2024</h2>
           </div>
         </div>
@@ -78,12 +78,12 @@ function Navbar() {
           <img
             src={dotMenuIcon}
             alt="menu"
-            style={{ height: "20px", width: "20px" }}
+            style={{ height: "15px", width: "15px" }}
           />
           <img
             src={userIcon}
             alt="profilePic"
-            style={{ height: "30px", width: "30px" }}
+            style={{ height: "40px", width: "40px" }}
           />
         </div>
       </nav>
