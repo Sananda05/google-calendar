@@ -10,7 +10,6 @@ const LeftSideBar = ({ selectedDate, setSelectedDate }) => {
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "50%",
           justifyContent: "space-around",
         }}
       >
