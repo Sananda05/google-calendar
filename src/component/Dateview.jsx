@@ -1,22 +1,10 @@
 import { getDate, getMonth, isFirstDayOfMonth, isToday } from "date-fns";
 
-const monthList = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
+import { monthList } from "../data";
 const Dateview = ({ date, day }) => {
   const isFirstDay = isFirstDayOfMonth(date);
+
+  console.log(day, "Day");
 
   return (
     <div className="grid_item">
