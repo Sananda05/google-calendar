@@ -14,22 +14,16 @@ const Dateview = ({ date, day }) => {
         <></>
       )}
       {isFirstDay ? (
-        <div
-          style={{
-            marginTop: "20px",
-            backgroundColor: isToday(date) ? "#ccdbf3" : "transparent",
-          }}
-        >
-          {monthList[getMonth(date)]} {getDate(date)}
+        <div className={isToday(date) ? "today_date_container" : "other_date"}>
+          <div className={isToday(date) ? "today_date" : ""}>
+            {monthList[getMonth(date)]} {getDate(date)}
+          </div>
         </div>
       ) : (
-        <div
-          style={{
-            marginTop: "20px",
-            backgroundColor: isToday(date) ? "#ccdbf3" : "transparent",
-          }}
-        >
-          {getDate(date)}
+        <div className={isToday(date) ? "today_date_container" : "other_date"}>
+          <div className={isToday(date) ? "today_date" : ""}>
+            {getDate(date)}
+          </div>
         </div>
       )}
     </div>

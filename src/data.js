@@ -22,3 +22,5 @@ export const dayList = [
   "Friday",
   "Saturday",
 ];
+
+export const shortDayList = ["S", "M", "T", "W", "T", "F", "S"];
