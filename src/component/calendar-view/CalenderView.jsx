@@ -19,8 +19,7 @@ const CalendarView = ({ selectedDate, setSelectedDate }) => {
   //   console.log("Date", date);
   // };
 
-  const handleModalOpener = ({ e, date }) => {
-    e.preventDefault();
+  const handleModalOpener = ({ date }) => {
     setAddEventModal(!addEventModal);
   };
 
@@ -30,11 +29,11 @@ const CalendarView = ({ selectedDate, setSelectedDate }) => {
     <div className="calendar_wrapper">
       {calendarDates.map(({ date }, index) =>
         index <= 6 ? (
-          <div onClick={(e) => handleModalOpener({ e, date })}>
+          <div onClick={(e) => handleModalOpener({ date })}>
             <Dateview date={date} day={dayList[index]} />
           </div>
         ) : (
-          <div onClick={(e) => handleModalOpener({ e, date })}>
+          <div onClick={(e) => handleModalOpener({ date })}>
             <Dateview date={date} day={""} />
           </div>
         )

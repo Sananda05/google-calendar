@@ -1,15 +1,17 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./EventModal.css";
 
 const EventModal = ({ handleModalOpener }) => {
   const eventNameref = useRef("");
 
+  const [time, setTime] = useState("");
+
   return (
-    <div className="modal_content">
-      <form onSubmit={""}>
+    <div className="modal_wrapper">
+      <form onSubmit={""} className="modal_content">
         <input
           type="text"
-          placeholder="Event Details"
+          placeholder="Event Title"
           id="event_name"
           name="name"
           ref={eventNameref}
@@ -26,12 +28,18 @@ const EventModal = ({ handleModalOpener }) => {
             {errorMessage}
           </p>
         )} */}
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+        />
         <div className="modal_button_group">
           <button className="cancel_btn" onClick={handleModalOpener}>
-            cancel
+            Cancel
           </button>
           <button className="create_btn" type="submit">
-            create
+            Save
           </button>
         </div>
       </form>
