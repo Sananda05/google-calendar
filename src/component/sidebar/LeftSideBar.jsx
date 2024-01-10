@@ -1,8 +1,9 @@
 import "./Sidebar.css";
 
 import plusIcon from "../../assets/icons/plus.png";
+import SidebarCalendar from "../sidebar-calendar/SidebarCalendar";
 
-const LeftSideBar = () => {
+const LeftSideBar = ({ selectedDate, setSelectedDate }) => {
   return (
     <div className="left_sidebar_container">
       <div
@@ -28,6 +29,10 @@ const LeftSideBar = () => {
         />
         <p style={{ fontSize: "14px" }}>Create</p>
       </div>
+      <SidebarCalendar
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
     </div>
   );
 };
