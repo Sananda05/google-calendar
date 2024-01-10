@@ -1,6 +1,5 @@
 .right_sidebar_container{
     width: 4%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +8,6 @@
 
 .left_sidebar_container{
     width: 20%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,11 +16,12 @@
     
 }
 .right_sidebar_icons{
-    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding-top: 30px;
+    gap: 30px;
 }
 .keep_icon_container{
     display: flex;

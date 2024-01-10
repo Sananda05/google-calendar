@@ -1,15 +1,14 @@
 import { getDate, getMonth, isFirstDayOfMonth, isToday } from "date-fns";
 
 import { monthList } from "../data";
+
 const Dateview = ({ date, day }) => {
   const isFirstDay = isFirstDayOfMonth(date);
-
-  console.log(day, "Day");
 
   return (
     <div className="grid_item">
       {day ? (
-        <div style={{ marginBottom: "10px", marginTop: "10px" }}>{day}</div>
+        <div style={{ marginBottom: "10px", paddingTop: "10px" }}>{day}</div>
       ) : (
         <></>
       )}

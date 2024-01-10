@@ -1,14 +1,27 @@
-import { useState } from "react";
-
 import "./CalendarView.css";
+
+import { useState } from "react";
 
 import Dateview from "../Dateview";
 
 import { dayList } from "../../data";
 import { fetchCalendarDates } from "../../utils/fetch-data";
+import EventModal from "../modal/EventModal";
 
 const CalendarView = ({ selectedDate, setSelectedDate }) => {
   const calendarDates = fetchCalendarDates(selectedDate);
+
+  const [addEventModal, setAddEventModal] = useState(false);
+
+  // const handleAddEvent = ({ e, date }) => {
+  //   e.preventDefault();
+  //   setAddEventModal(!addEventModal);
+  //   console.log("Date", date);
+  // };
+
+  const handleModalOpener = ({ date }) => {
+    setAddEventModal(!addEventModal);
+  };
 
   console.log("Calendar Dates:", calendarDates);
 
@@ -16,11 +29,16 @@ const CalendarView = ({ selectedDate, setSelectedDate }) => {
     <div className="calendar_wrapper">
       {calendarDates.map(({ date }, index) =>
         index <= 6 ? (
-          <Dateview date={date} day={dayList[index]} />
+          <div onClick={(e) => handleModalOpener({ date })}>
+            <Dateview date={date} day={dayList[index]} />
+          </div>
         ) : (
-          <Dateview date={date} day={""} />
+          <div onClick={(e) => handleModalOpener({ date })}>
+            <Dateview date={date} day={""} />
+          </div>
         )
       )}
+      {addEventModal && <EventModal handleModalOpener={handleModalOpener} />}
     </div>
   );
 };

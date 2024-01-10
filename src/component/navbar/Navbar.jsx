@@ -24,7 +24,7 @@ import { format } from "date-fns";
 
 function Navbar({ selectedDate, setSelectedDate }) {
   return (
-    <div className="header">
+    <div className="">
       <nav className="navbar">
         <div className="navbar_left_content">
           <div className="navbar_left_first_content">
