@@ -53,7 +53,7 @@
     width: 35%;
 }
 .navbar_left_second_content{
-    width: 55%;
+    width: 60%;
     gap: .5rem;
 }
 
@@ -76,6 +76,29 @@
   
   /* Add hover effect */
   .hamburger_container:hover {
+    background-color: #dfdfdf; 
+    border-radius: 50%;
+  }
+
+  
+  .navigation_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; /* Adjust the size as needed */
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .navigation_button{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+
+  .navigation_button_container:hover{
     background-color: #dfdfdf; 
     border-radius: 50%;
   }

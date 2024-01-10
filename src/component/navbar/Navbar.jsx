@@ -12,8 +12,17 @@ import calendarIcon from "../../assets/icons/calendar.png";
 import tickIcon from "../../assets/icons/correct.png";
 import dotMenuIcon from "../../assets/icons/dots-menu.png";
 import userIcon from "../../assets/icons/user.png";
+import leftIcon from "../../assets/icons/left.png";
+import rightIcon from "../../assets/icons/right.png";
 
-function Navbar() {
+import {
+  handleNextMonthChange,
+  handlePrevMonthChange,
+} from "../../utils/calendar-navigation";
+
+import { format } from "date-fns";
+
+function Navbar({ selectedDate, setSelectedDate }) {
   return (
     <div className="header">
       <nav className="navbar">
@@ -32,9 +41,29 @@ function Navbar() {
 
           <div className="navbar_left_second_content">
             <button className="navbar_today_button">Today</button>
-            <p style={{ color: "#222222", cursor: "pointer" }}> {"<"} </p>
-            <p style={{ color: "#222222", cursor: "pointer" }}> {">"} </p>
-            <h2 className="navbar_title">January 2024</h2>
+            <div className="navigation_button_container">
+              <img
+                src={leftIcon}
+                alt="left"
+                className="navigation_button"
+                onClick={(e) =>
+                  handlePrevMonthChange({ e, selectedDate, setSelectedDate })
+                }
+              />
+            </div>
+            <div className="navigation_button_container">
+              <img
+                src={rightIcon}
+                alt="right"
+                className="navigation_button"
+                onClick={(e) =>
+                  handleNextMonthChange({ e, selectedDate, setSelectedDate })
+                }
+              />
+            </div>
+            <h2 className="navbar_title">
+              <span>{format(selectedDate, "MMMM yyyy")}</span>
+            </h2>
           </div>
         </div>
 
