@@ -47,7 +47,11 @@ function Navbar({ selectedDate, setSelectedDate }) {
                 alt="left"
                 className="navigation_button"
                 onClick={(e) =>
-                  handlePrevMonthChange({ e, selectedDate, setSelectedDate })
+                  handlePrevMonthChange({
+                    e,
+                    selectedDate,
+                    setSelectedDate,
+                  })
                 }
               />
             </div>
@@ -57,7 +61,11 @@ function Navbar({ selectedDate, setSelectedDate }) {
                 alt="right"
                 className="navigation_button"
                 onClick={(e) =>
-                  handleNextMonthChange({ e, selectedDate, setSelectedDate })
+                  handleNextMonthChange({
+                    e,
+                    selectedDate,
+                    setSelectedDate,
+                  })
                 }
               />
             </div>

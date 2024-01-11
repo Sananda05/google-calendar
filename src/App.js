@@ -9,6 +9,7 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [sideCalendarDate, setSideCalendarDate] = useState(new Date());
   const [events, setEvents] = useState({});
+  // const [animation, setAnimation] = useState(null);
 
   return (
     <div className="App">
@@ -24,7 +25,6 @@ function App() {
         />
         <CalendarView
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
           events={events}
           setEvents={setEvents}
         />

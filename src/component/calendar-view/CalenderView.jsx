@@ -8,7 +8,9 @@ import { dayList } from "../../data";
 import { fetchCalendarDates } from "../../utils/fetch-data";
 import EventModal from "../modal/EventModal";
 
-const CalendarView = ({ selectedDate, setSelectedDate, events, setEvents }) => {
+// import { handleTransitionEnd } from "../../utils/calendar-navigation";
+
+const CalendarView = ({ selectedDate, events, setEvents }) => {
   const [date, setDate] = useState("");
   const calendarDates = fetchCalendarDates({ selectedDate, events, setEvents });
 
@@ -19,15 +21,11 @@ const CalendarView = ({ selectedDate, setSelectedDate, events, setEvents }) => {
     setDate(date);
   };
 
-  // console.log("Calendar Dates:", calendarDates);
-
   return (
-    <div className="calendar_wrapper">
+    <div className={` calendar_wrapper`}>
       {calendarDates.map(({ date, event }, index) =>
         index <= 6 ? (
-          <div onClick={(e) => handleModalOpener({ date })}>
-            {/* {console.log(event?.title)}
-            {console.log(event?.time)} */}
+          <div key={index} onClick={(e) => handleModalOpener({ date })}>
             <Dateview
               date={date}
               day={dayList[index]}
@@ -36,7 +34,7 @@ const CalendarView = ({ selectedDate, setSelectedDate, events, setEvents }) => {
             />
           </div>
         ) : (
-          <div onClick={(e) => handleModalOpener({ date })}>
+          <div key={index} onClick={(e) => handleModalOpener({ date })}>
             <Dateview
               date={date}
               day={""}

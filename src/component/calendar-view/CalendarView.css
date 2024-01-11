@@ -5,6 +5,18 @@
     grid-template-rows: repeat(5, 1fr);
 }
 
+.calendar_wrapper {
+    transition: transform .7s ease;
+  }
+  
+  .calendar_wrapper.prev {
+    transform: translateX(-100%);
+  }
+  
+  .calendar_wrapper.next {
+    transform: translateX(100%);
+  }
+
 .grid_item{
     height: 130px;
     width: 160px;

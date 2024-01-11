@@ -51,6 +51,7 @@ const SidebarCalendar = ({
           (day, index) =>
             index <= 6 ? (
               <div
+                key={index}
                 style={{
                   display: "flex",
                   flexDirection: "column",
