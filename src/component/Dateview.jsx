@@ -1,6 +1,7 @@
 import { getDate, getMonth, isFirstDayOfMonth, isToday } from "date-fns";
 
 import { monthList } from "../data";
+import ViewEvent from "./ViewEvent";
 
 const Dateview = ({ date, day, eventTitle, eventTime }) => {
   const isFirstDay = isFirstDayOfMonth(date);
@@ -13,36 +14,19 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
         <></>
       )}
       {isFirstDay ? (
-        <div className={isToday(date) ? "today_date_container" : "other_date"}>
-          <div className={isToday(date) ? "today_date" : ""}>
-            {monthList[getMonth(date)]} {getDate(date)}
-          </div>
-          {eventTitle ? (
-            <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
-              <div
-                style={{
-                  height: "10px",
-                  width: "10px",
-                  borderRadius: "50%",
-                  backgroundColor: "rgb(60, 108, 240)",
-                }}
-              ></div>
-              <p
-                style={{
-                  color: "rgb(60, 108, 240)",
-                  fontWeight: "bold",
-                  fontSize: "10px",
-                }}
-              >
-                {eventTime}
-              </p>
-              <p style={{ fontWeight: "bold", fontSize: "10px" }}>
-                {eventTitle}
-              </p>
+        <div className="today_date_wrapper">
+          <div
+            className={isToday(date) ? "today_date_container" : "other_date"}
+          >
+            <div className={isToday(date) ? "today_date" : ""}>
+              {monthList[getMonth(date)]} {getDate(date)}
             </div>
-          ) : (
-            <></>
-          )}
+            {eventTitle ? (
+              <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       ) : (
         <div className="today_date_wrapper">
@@ -54,29 +38,7 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
             </div>
           </div>
           {eventTitle ? (
-            <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
-              <div
-                style={{
-                  height: "5px",
-                  width: "5px",
-                  borderRadius: "50%",
-                  backgroundColor: "rgb(60, 108, 240)",
-                  gap: "5px",
-                }}
-              ></div>
-              <p
-                style={{
-                  color: "rgb(60, 108, 240)",
-                  fontWeight: "bold",
-                  fontSize: "10px",
-                }}
-              >
-                {eventTime}
-              </p>
-              <p style={{ fontWeight: "bold", fontSize: "10px" }}>
-                {eventTitle}
-              </p>
-            </div>
+            <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
           ) : (
             <></>
           )}

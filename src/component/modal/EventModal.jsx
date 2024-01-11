@@ -13,9 +13,15 @@ const EventModal = ({
 }) => {
   const eventNameref = useRef("");
 
-  const [time, setTime] = useState("12:00 AM");
-  const [startDate, setstartDate] = useState(null);
+  const [time, setTime] = useState(null);
+  const [startDate, setstartDate] = useState(date);
   const [endDate, setendDate] = useState(null);
+
+  const currentTime = new Date();
+  const hours = currentTime.getHours().toString().padStart(2, "0");
+  const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+
+  const currentTimeString = `${hours}:${minutes}`;
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -28,7 +34,12 @@ const EventModal = ({
       const currentDate = new Date(startDate);
 
       while (currentDate <= endDate) {
-        newEvents[currentDate.toISOString()] = { title, time };
+        time
+          ? (newEvents[currentDate.toISOString()] = { title, time })
+          : (newEvents[currentDate.toISOString()] = {
+              title,
+              time: currentTimeString,
+            });
         currentDate.setDate(currentDate.getDate() + 1);
       }
     } else {
@@ -36,8 +47,6 @@ const EventModal = ({
     }
 
     setEvents(newEvents);
-
-    console.log(calendarDates);
 
     eventNameref.current.value = "";
     setTime("");
@@ -66,7 +75,7 @@ const EventModal = ({
         />
         <input
           type="time"
-          value={time}
+          value={time ? time : currentTimeString}
           onChange={(e) => setTime(e.target.value)}
           style={{ cursor: "pointer" }}
           required
