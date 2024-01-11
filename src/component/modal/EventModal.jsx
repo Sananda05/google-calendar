@@ -10,7 +10,7 @@ const EventModal = ({
 }) => {
   const eventNameref = useRef("");
 
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("12:00 AM");
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -39,21 +39,12 @@ const EventModal = ({
           required
           //   onKeyDown={handleKeyDown}
         />
-        {/* {errorMessage && (
-          <p
-            style={{
-              color: "red",
-              fontSize: "11px",
-              display: "hidden",
-            }}
-          >
-            {errorMessage}
-          </p>
-        )} */}
         <input
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
+          placeholder={time}
+          style={{ cursor: "pointer" }}
           required
         />
         <div className="modal_button_group">

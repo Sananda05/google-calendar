@@ -11,7 +11,7 @@ import settingIcon from "../../assets/icons/settings.png";
 import calendarIcon from "../../assets/icons/calendar.png";
 import tickIcon from "../../assets/icons/correct.png";
 import dotMenuIcon from "../../assets/icons/dots-menu.png";
-import userIcon from "../../assets/icons/user.png";
+import userIcon from "../../assets/icons/sananda.jpg";
 import leftIcon from "../../assets/icons/left.png";
 import rightIcon from "../../assets/icons/right.png";
 
@@ -112,7 +112,7 @@ function Navbar({ selectedDate, setSelectedDate }) {
           <img
             src={userIcon}
             alt="profilePic"
-            style={{ height: "40px", width: "40px" }}
+            style={{ height: "45px", width: "45px", borderRadius: "50%" }}
           />
         </div>
       </nav>
