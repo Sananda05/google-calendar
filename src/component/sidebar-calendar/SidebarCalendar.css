@@ -5,7 +5,6 @@
     align-items: flex-start;
 }
 
-
 .calendar_navigation{
     display: flex;
     flex-direction: row;
@@ -25,8 +24,9 @@
 
 .calendar_grid_item {
     font-size: 10px;
-    height: 22px;
-    width: 22px;
+    height: 18px;
+    width: 18px;
+    color: black;
 }
 
 .today{

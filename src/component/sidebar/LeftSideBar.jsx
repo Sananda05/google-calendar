@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import plusIcon from "../../assets/icons/plus.png";
 import SidebarCalendar from "../sidebar-calendar/SidebarCalendar";
 
-const LeftSideBar = ({ selectedDate, setSelectedDate }) => {
+const LeftSideBar = ({ selectedDate, setSelectedDate, events, setEvents }) => {
   return (
     <div className="left_sidebar_container">
       <div
@@ -39,6 +39,8 @@ const LeftSideBar = ({ selectedDate, setSelectedDate }) => {
         <SidebarCalendar
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          events={events}
+          setEvents={setEvents}
         />
       </div>
       <div></div>

@@ -9,8 +9,8 @@
 .modal_wrapper{
     position: absolute;
     align-items: center;
-    width: 40%;
-    height: 40%;
+    width: 550px;
+    height: 500px;
     background: var(--white);
     border-radius: 20px;
     box-shadow: 0 .5px 6px rgb(195, 193, 193);
@@ -47,14 +47,15 @@
     border: none;
     border-radius: 5px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .create_btn{
     background-color: var(--blue);
     color: var(--white);
+    cursor: pointer;
 }
 
 .cancel_btn{
     color: var( --primary);
+    cursor: pointer;
 }

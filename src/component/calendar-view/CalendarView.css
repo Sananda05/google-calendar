@@ -5,6 +5,18 @@
     grid-template-rows: repeat(5, 1fr);
 }
 
+.calendar_wrapper {
+    transition: transform .7s ease;
+  }
+  
+  .calendar_wrapper.prev {
+    transform: translateX(-100%);
+  }
+  
+  .calendar_wrapper.next {
+    transform: translateX(100%);
+  }
+
 .grid_item{
     height: 130px;
     width: 160px;
@@ -14,8 +26,14 @@
     align-items: center;
     justify-content: center;
     color: var(--gray);
-    font-size: 14px;
+    font-size: 12px;
     padding-top: 10px;
+}
+
+.today_date_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .today_date_container{
@@ -27,7 +45,7 @@
     cursor: pointer;
     background-color:var(--blue);
     border-radius: 50%;
-    margin-left: 4rem;
+   
 }
 
 .today_date{

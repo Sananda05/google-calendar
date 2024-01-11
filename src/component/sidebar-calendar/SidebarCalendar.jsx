@@ -12,7 +12,12 @@ import rightIcon from "../../assets/icons/right.png";
 
 import "./SidebarCalendar.css";
 
-const SidebarCalendar = ({ selectedDate, setSelectedDate }) => {
+const SidebarCalendar = ({
+  selectedDate,
+  setSelectedDate,
+  events,
+  setEvents,
+}) => {
   return (
     <div className="calendar_containder">
       <div className="calendar_navigation">
@@ -42,40 +47,42 @@ const SidebarCalendar = ({ selectedDate, setSelectedDate }) => {
         </div>
       </div>
       <div className="calender_grid">
-        {fetchCalendarDates(selectedDate).map((day, index) =>
-          index <= 6 ? (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                fontSize: "10px",
-              }}
-            >
-              <div className="calendar_grid_item" key={index}>
-                {shortDayList[index]}
+        {fetchCalendarDates({ selectedDate, events, setEvents }).map(
+          (day, index) =>
+            index <= 6 ? (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  fontSize: "10px",
+                }}
+              >
+                <div className="calendar_grid_item" key={index}>
+                  {shortDayList[index]}
+                </div>
+                <p
+                  className={
+                    isToday(day.date)
+                      ? "today calendar_grid_item"
+                      : "calendar_grid_item"
+                  }
+                >
+                  {format(day.date, "d")}
+                </p>
               </div>
-              <p
+            ) : (
+              <div
                 className={
                   isToday(day.date)
                     ? "today calendar_grid_item"
                     : "calendar_grid_item"
                 }
+                key={index}
               >
                 {format(day.date, "d")}
-              </p>
-            </div>
-          ) : (
-            <div
-              className={
-                isToday(day.date)
-                  ? "today calendar_grid_item"
-                  : "calendar_grid_item"
-              }
-              key={index}
-            >
-              {format(day.date, "d")}
-            </div>
-          )
+              </div>
+            )
         )}
       </div>
     </div>
