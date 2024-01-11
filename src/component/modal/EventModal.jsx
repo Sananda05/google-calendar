@@ -1,14 +1,41 @@
 import { useRef, useState } from "react";
 import "./EventModal.css";
 
-const EventModal = ({ handleModalOpener }) => {
+const EventModal = ({
+  handleModalOpener,
+  calendarDates,
+  event,
+  setEvents,
+  date,
+}) => {
   const eventNameref = useRef("");
 
   const [time, setTime] = useState("");
 
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    console.log(date, "Date");
+    // console.log(calendarDates);
+    // console.log(eventNameref.current.value);
+    // console.log(time);
+
+    const title = eventNameref.current.value;
+
+    if (title && time) {
+      const newEvents = { ...event, [date.toISOString()]: { title, time } };
+      setEvents(newEvents);
+    }
+
+    eventNameref.current.value = "";
+    setTime("");
+    handleModalOpener("");
+    // console.log(calendarDates, "Updated Date");
+    // console.log(event);
+  };
+
   return (
     <div className="modal_wrapper">
-      <form onSubmit={""} className="modal_content">
+      <form onSubmit={handlesubmit} className="modal_content">
         <input
           type="text"
           placeholder="Event Title"

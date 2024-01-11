@@ -8,6 +8,7 @@ import LeftSideBar from "./component/sidebar/LeftSideBar";
 function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [sideCalendarDate, setSideCalendarDate] = useState(new Date());
+  const [events, setEvents] = useState({});
 
   return (
     <div className="App">
@@ -18,10 +19,14 @@ function App() {
         <LeftSideBar
           selectedDate={sideCalendarDate}
           setSelectedDate={setSideCalendarDate}
+          events={events}
+          setEvents={setEvents}
         />
         <CalendarView
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          events={events}
+          setEvents={setEvents}
         />
         <RightsideBar />
       </div>
