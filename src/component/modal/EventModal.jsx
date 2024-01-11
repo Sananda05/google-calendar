@@ -14,10 +14,6 @@ const EventModal = ({
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(date, "Date");
-    // console.log(calendarDates);
-    // console.log(eventNameref.current.value);
-    // console.log(time);
 
     const title = eventNameref.current.value;
 
@@ -29,8 +25,6 @@ const EventModal = ({
     eventNameref.current.value = "";
     setTime("");
     handleModalOpener("");
-    // console.log(calendarDates, "Updated Date");
-    // console.log(event);
   };
 
   return (
@@ -42,6 +36,7 @@ const EventModal = ({
           id="event_name"
           name="name"
           ref={eventNameref}
+          required
           //   onKeyDown={handleKeyDown}
         />
         {/* {errorMessage && (
