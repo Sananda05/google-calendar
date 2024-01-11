@@ -14,7 +14,7 @@ const EventModal = ({
   const eventNameref = useRef("");
 
   const [time, setTime] = useState("12:00 AM");
-  const [startDate, setstartDate] = useState(null);
+  const [startDate, setstartDate] = useState(date);
   const [endDate, setendDate] = useState(null);
 
   const handlesubmit = (e) => {
@@ -84,6 +84,7 @@ const EventModal = ({
             onChange={handlestartDate}
             style={{ width: "10px", cursor: "pointer" }}
             placeholderText="Start Date"
+            disabled
           />
           <DatePicker
             selected={endDate}
