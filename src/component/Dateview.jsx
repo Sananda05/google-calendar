@@ -1,6 +1,7 @@
 import { getDate, getMonth, isFirstDayOfMonth, isToday } from "date-fns";
 
 import { monthList } from "../data";
+import ViewEvent from "./ViewEvent";
 
 const Dateview = ({ date, day, eventTitle, eventTime }) => {
   const isFirstDay = isFirstDayOfMonth(date);
@@ -21,30 +22,7 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
               {monthList[getMonth(date)]} {getDate(date)}
             </div>
             {eventTitle ? (
-              <div
-                style={{ display: "flex", gap: "5px", alignItems: "center" }}
-              >
-                <div
-                  style={{
-                    height: "6px",
-                    width: "6px",
-                    borderRadius: "50%",
-                    backgroundColor: "rgb(60, 108, 240)",
-                  }}
-                ></div>
-                <p
-                  style={{
-                    color: "rgb(60, 108, 240)",
-                    fontWeight: "bold",
-                    fontSize: "10px",
-                  }}
-                >
-                  {eventTime}
-                </p>
-                <p style={{ fontWeight: "bold", fontSize: "10px" }}>
-                  {eventTitle}
-                </p>
-              </div>
+              <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
             ) : (
               <></>
             )}
@@ -60,29 +38,7 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
             </div>
           </div>
           {eventTitle ? (
-            <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
-              <div
-                style={{
-                  height: "6px",
-                  width: "6px",
-                  borderRadius: "50%",
-                  backgroundColor: "rgb(60, 108, 240)",
-                  gap: "5px",
-                }}
-              ></div>
-              <p
-                style={{
-                  color: "rgb(60, 108, 240)",
-                  fontWeight: "bold",
-                  fontSize: "10px",
-                }}
-              >
-                {eventTime}
-              </p>
-              <p style={{ fontWeight: "bold", fontSize: "10px" }}>
-                {eventTitle}
-              </p>
-            </div>
+            <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
           ) : (
             <></>
           )}

@@ -34,7 +34,12 @@ const EventModal = ({
       const currentDate = new Date(startDate);
 
       while (currentDate <= endDate) {
-        newEvents[currentDate.toISOString()] = { title, time };
+        time
+          ? (newEvents[currentDate.toISOString()] = { title, time })
+          : (newEvents[currentDate.toISOString()] = {
+              title,
+              time: currentTimeString,
+            });
         currentDate.setDate(currentDate.getDate() + 1);
       }
     } else {
@@ -42,8 +47,6 @@ const EventModal = ({
     }
 
     setEvents(newEvents);
-
-    console.log(calendarDates);
 
     eventNameref.current.value = "";
     setTime("");
