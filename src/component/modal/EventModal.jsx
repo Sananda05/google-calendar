@@ -13,9 +13,15 @@ const EventModal = ({
 }) => {
   const eventNameref = useRef("");
 
-  const [time, setTime] = useState("12:00 AM");
+  const [time, setTime] = useState(null);
   const [startDate, setstartDate] = useState(date);
   const [endDate, setendDate] = useState(null);
+
+  const currentTime = new Date();
+  const hours = currentTime.getHours().toString().padStart(2, "0");
+  const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+
+  const currentTimeString = `${hours}:${minutes}`;
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -66,7 +72,7 @@ const EventModal = ({
         />
         <input
           type="time"
-          value={time}
+          value={time ? time : currentTimeString}
           onChange={(e) => setTime(e.target.value)}
           style={{ cursor: "pointer" }}
           required
@@ -84,7 +90,6 @@ const EventModal = ({
             onChange={handlestartDate}
             style={{ width: "10px", cursor: "pointer" }}
             placeholderText="Start Date"
-            disabled
           />
           <DatePicker
             selected={endDate}
