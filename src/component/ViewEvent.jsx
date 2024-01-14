@@ -12,7 +12,7 @@ const ViewEvent = ({ events, date }) => {
             alignItems: "center",
             backgroundColor: event.color,
             justifyContent: "center",
-            borderRadius: "3px",
+            borderRadius: "1px",
           }}
           onClick={""}
         >
