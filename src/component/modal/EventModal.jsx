@@ -31,19 +31,38 @@ const EventModal = ({
     const newEvents = { ...event };
 
     if (startDate && endDate) {
-      const currentDate = new Date(startDate);
+      let currentDate = new Date(startDate);
 
       while (currentDate <= endDate) {
-        time
-          ? (newEvents[currentDate.toISOString()] = { title, time })
-          : (newEvents[currentDate.toISOString()] = {
-              title,
-              time: currentTimeString,
-            });
+        const currentDateISOString = currentDate.toISOString();
+
+        if (!newEvents[currentDateISOString]) {
+          newEvents[currentDateISOString] = [];
+        }
+
+        const eventObj = {
+          title,
+          time: time ? time : currentTimeString,
+        };
+
+        newEvents[currentDateISOString].push(eventObj);
+
         currentDate.setDate(currentDate.getDate() + 1);
       }
     } else {
-      newEvents[date.toISOString()] = { title, time };
+      // For a single date event
+      const currentDateISOString = date.toISOString();
+
+      if (!newEvents[currentDateISOString]) {
+        newEvents[currentDateISOString] = [];
+      }
+
+      const eventObj = {
+        title,
+        time: time ? time : currentTimeString,
+      };
+
+      newEvents[currentDateISOString].push(eventObj);
     }
 
     setEvents(newEvents);
