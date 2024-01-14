@@ -13,6 +13,9 @@ const EventModal = ({
 }) => {
   const eventNameref = useRef("");
 
+  const colorList = ["#469fe7", "#92c8b7", "#89a9d8", "#b489d8", "#e198c8"];
+  const randomIndex = Math.floor(Math.random() * colorList.length);
+
   const [time, setTime] = useState(null);
   const [startDate, setstartDate] = useState(date);
   const [endDate, setendDate] = useState(null);
@@ -43,6 +46,8 @@ const EventModal = ({
         const eventObj = {
           title,
           time: time ? time : currentTimeString,
+          startDate: startDate,
+          color: colorList[randomIndex],
         };
 
         newEvents[currentDateISOString].push(eventObj);
@@ -60,6 +65,8 @@ const EventModal = ({
       const eventObj = {
         title,
         time: time ? time : currentTimeString,
+        startDate: date,
+        color: colorList[randomIndex],
       };
 
       newEvents[currentDateISOString].push(eventObj);

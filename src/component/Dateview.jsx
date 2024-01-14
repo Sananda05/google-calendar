@@ -23,8 +23,8 @@ const Dateview = ({ date, day, event }) => {
             <div className={isToday(date) ? "today_date" : ""}>
               {monthList[getMonth(date)]} {getDate(date)}
             </div>
-            {event ? <ViewEvent event={event} /> : <></>}
-            {numberOfEvent > 2 && (
+            {event ? <ViewEvent event={event} date={date} /> : <></>}
+            {numberOfEvent > 3 && (
               <p
                 style={{
                   color: "#717172",
@@ -32,7 +32,7 @@ const Dateview = ({ date, day, event }) => {
                   fontWeight: "bold",
                 }}
               >
-                {numberOfEvent - 2} more
+                {numberOfEvent - 3} more
               </p>
             )}
           </div>
@@ -46,12 +46,12 @@ const Dateview = ({ date, day, event }) => {
               {getDate(date)}
             </div>
           </div>
-          {event ? <ViewEvent events={event} /> : <></>}
-          {numberOfEvent > 2 && (
+          {event ? <ViewEvent events={event} date={date} /> : <></>}
+          {numberOfEvent > 3 && (
             <p
               style={{ color: "#717172", fontSize: "10px", fontWeight: "bold" }}
             >
-              {numberOfEvent - 2} more
+              {numberOfEvent - 3} more
             </p>
           )}
         </div>
