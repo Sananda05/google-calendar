@@ -23,24 +23,15 @@ const CalendarView = ({ selectedDate, events, setEvents }) => {
 
   return (
     <div className={` calendar_wrapper`}>
+      {console.log(calendarDates)}
       {calendarDates.map(({ date, event }, index) =>
         index <= 6 ? (
           <div key={index} onClick={(e) => handleModalOpener({ date })}>
-            <Dateview
-              date={date}
-              day={dayList[index]}
-              eventTitle={event?.title}
-              eventTime={event?.time}
-            />
+            <Dateview date={date} day={dayList[index]} event={event} />
           </div>
         ) : (
           <div key={index} onClick={(e) => handleModalOpener({ date })}>
-            <Dateview
-              date={date}
-              day={""}
-              eventTitle={event?.title}
-              eventTime={event?.time}
-            />
+            <Dateview date={date} day={""} event={event} />
           </div>
         )
       )}

@@ -13,6 +13,9 @@ const EventModal = ({
 }) => {
   const eventNameref = useRef("");
 
+  const colorList = ["#469fe7", "#92c8b7", "#89a9d8", "#b489d8", "#e198c8"];
+  const randomIndex = Math.floor(Math.random() * colorList.length);
+
   const [time, setTime] = useState(null);
   const [startDate, setstartDate] = useState(date);
   const [endDate, setendDate] = useState(null);
@@ -31,19 +34,42 @@ const EventModal = ({
     const newEvents = { ...event };
 
     if (startDate && endDate) {
-      const currentDate = new Date(startDate);
+      let currentDate = new Date(startDate);
 
       while (currentDate <= endDate) {
-        time
-          ? (newEvents[currentDate.toISOString()] = { title, time })
-          : (newEvents[currentDate.toISOString()] = {
-              title,
-              time: currentTimeString,
-            });
+        const currentDateISOString = currentDate.toISOString();
+
+        if (!newEvents[currentDateISOString]) {
+          newEvents[currentDateISOString] = [];
+        }
+
+        const eventObj = {
+          title,
+          time: time ? time : currentTimeString,
+          startDate: startDate,
+          color: colorList[randomIndex],
+        };
+
+        newEvents[currentDateISOString].push(eventObj);
+
         currentDate.setDate(currentDate.getDate() + 1);
       }
     } else {
-      newEvents[date.toISOString()] = { title, time };
+      // For a single date event
+      const currentDateISOString = date.toISOString();
+
+      if (!newEvents[currentDateISOString]) {
+        newEvents[currentDateISOString] = [];
+      }
+
+      const eventObj = {
+        title,
+        time: time ? time : currentTimeString,
+        startDate: date,
+        color: colorList[randomIndex],
+      };
+
+      newEvents[currentDateISOString].push(eventObj);
     }
 
     setEvents(newEvents);

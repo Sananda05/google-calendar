@@ -3,8 +3,10 @@ import { getDate, getMonth, isFirstDayOfMonth, isToday } from "date-fns";
 import { monthList } from "../data";
 import ViewEvent from "./ViewEvent";
 
-const Dateview = ({ date, day, eventTitle, eventTime }) => {
+const Dateview = ({ date, day, event }) => {
   const isFirstDay = isFirstDayOfMonth(date);
+
+  const numberOfEvent = event?.length;
 
   return (
     <div className="grid_item">
@@ -14,22 +16,29 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
         <></>
       )}
       {isFirstDay ? (
-        <div className="today_date_wrapper">
+        <div className="date_wrapper">
           <div
             className={isToday(date) ? "today_date_container" : "other_date"}
           >
             <div className={isToday(date) ? "today_date" : ""}>
               {monthList[getMonth(date)]} {getDate(date)}
             </div>
-            {eventTitle ? (
-              <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
-            ) : (
-              <></>
+            {event ? <ViewEvent event={event} date={date} /> : <></>}
+            {numberOfEvent > 3 && (
+              <p
+                style={{
+                  color: "#717172",
+                  fontSize: "10px",
+                  fontWeight: "bold",
+                }}
+              >
+                {numberOfEvent - 3} more
+              </p>
             )}
           </div>
         </div>
       ) : (
-        <div className="today_date_wrapper">
+        <div className="date_wrapper">
           <div
             className={isToday(date) ? "today_date_container" : "other_date"}
           >
@@ -37,10 +46,13 @@ const Dateview = ({ date, day, eventTitle, eventTime }) => {
               {getDate(date)}
             </div>
           </div>
-          {eventTitle ? (
-            <ViewEvent eventTime={eventTime} eventTitle={eventTitle} />
-          ) : (
-            <></>
+          {event ? <ViewEvent events={event} date={date} /> : <></>}
+          {numberOfEvent > 3 && (
+            <p
+              style={{ color: "#717172", fontSize: "10px", fontWeight: "bold" }}
+            >
+              {numberOfEvent - 3} more
+            </p>
           )}
         </div>
       )}
